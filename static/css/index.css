@@ -1,0 +1,171 @@
+/* 新增的样式文件 - index.css */
+
+/* 页面基本样式 */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f1f1f1;
+    color: #333;
+}
+
+/* 导航栏样式 */
+.navbar {
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 15px 0;
+}
+
+.navbar nav ul li {
+    margin: 0 20px;
+}
+
+.navbar nav ul li a {
+    color: #333;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.navbar nav ul li a:hover {
+    color: #DC6180;
+}
+
+/* 退出按钮 */
+.navbar nav ul li a.btn-logout {
+    background-color: #DC6180;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.navbar nav ul li a.btn-logout:hover {
+    background-color: #e65c7a;
+    color: white;
+}
+
+/* 主页内容样式 */
+.hero {
+    height: 80vh;
+    background: url('../static/images/hero-image.jpg') center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    background-blend-mode: overlay;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.hero .hero-content {
+    padding: 30px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+}
+
+.hero h1 {
+    font-size: 42px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: #fff;
+}
+
+.hero .btn-primary {
+    background-color: #DC6180;
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.hero .btn-primary:hover {
+    background-color: #e65c7a;
+    transition: background-color 0.3s ease;
+}
+
+/* 功能介绍 */
+.features {
+    padding: 60px 20px;
+    background-color: #f7f7f7;
+    text-align: center;
+}
+
+.features h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+
+.features-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap; /* 让它适应不同的屏幕尺寸 */
+}
+
+.feature-item {
+    background-color: #fff;
+    padding: 30px;
+    width: 280px;
+    height: 380px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    text-align: center;
+}
+
+.feature-item:hover {
+    transform: translateY(-10px);
+}
+
+.feature-item img {
+    width: 100%;
+    border-radius: 10px;
+    height: 180px;
+    object-fit: cover;
+}
+
+.feature-item h3 {
+    font-size: 24px;
+    margin-top: 20px;
+    color: #333;
+}
+
+.feature-item p {
+    font-size: 16px;
+    color: #777;
+    line-height: 1.6;
+    margin-top: 10px;
+}
+
+/* 页脚 */
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 30px 0;
+    text-align: center;
+}

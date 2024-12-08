@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户管理</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/user_management.css"> <!-- 引入用户管理的样式 -->
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header class="navbar">
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">首页</a></li>
+                <li><a href="#features">我们的优势</a></li>
+                <li><a href="{{ url_for('user_management') }}" class="btn-user-management">用户管理</a></li>
+                <li><a href="{{ url_for('logout') }}" class="btn-logout">退出</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 用户管理内容 -->
+    <section id="user-management">
+        <div class="container">
+            <h2>用户管理</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>用户名</th>
+                        <th>邮箱</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in users %}
+                    <tr>
+                        <td>{{ user.id }}</td>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>
+                            <a href="{{ url_for('edit_user', user_id=user.id) }}" class="btn-edit">编辑</a>
+                            <form action="{{ url_for('delete_user', user_id=user.id) }}" method="POST" style="display:inline;">
+                                <button type="submit" class="btn-delete" onclick="return confirm('确定要删除该用户吗?')">删除</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <!-- 分页控件 -->
+            <div class="pagination">
+                {% if pagination.has_prev %}
+                    <a href="{{ url_for('user_management', page=pagination.prev_num) }}">上一页</a>
+                {% endif %}
+
+                <span>第 {{ pagination.page }} 页 / 共 {{ pagination.pages }} 页</span>
+
+                {% if pagination.has_next %}
+                    <a href="{{ url_for('user_management', page=pagination.next_num) }}">下一页</a>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <p>&copy; 2024 物体识别系统 | 设计由我们的团队制作</p>
+    </footer>
+</body>
+</html>

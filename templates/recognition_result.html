@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/result.css"> <!-- 更新为 result.css -->
+    <title>识别结果</title>
+</head>
+<body>
+     <!-- 导航栏 -->
+    <header class="navbar">
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('home') }}">首页</a></li> <!-- 跳转到 index 页面 -->
+            <li><a href="#features">我们的优势</a></li>
+            <!-- 添加用户管理链接 -->
+            <li><a href="{{ url_for('user_management') }}" class="btn-user-management">用户管理</a></li> <!-- 用户管理链接 -->
+            <li><a href="{{ url_for('logout') }}" class="btn-logout">退出</a></li> <!-- 退出按钮 -->
+        </ul>
+    </nav>
+</header>
+
+    <section id="result" class="result">
+        <div class="container">
+            <h2>识别结果</h2>
+            <div class="image-result">
+                <img src="{{ url_for('uploaded_file', filename=filename) }}" alt="上传图片" />
+            </div>
+            <h3>识别结果: <strong>{{ label }}</strong></h3>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 物体识别系统 | 设计由我们的团队制作</p>
+    </footer>
+</body>
+</html>

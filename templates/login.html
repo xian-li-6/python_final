@@ -1,0 +1,115 @@
+<!-- login.html -->
+
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录</title>
+    <link href="http://cdn.bootcss.com/jqueryui/1.11.0/jquery-ui.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../static/css/default.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/styles.css">
+</head>
+<body>
+    <!-- Flash消息展示 -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="flash-messages">
+                {% for category, message in messages %}
+                    <div class="flash-message {{ category }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <header class="htmleaf-header">
+        <h1>基于EfficientB7深度神经网络的物体识别系统
+            <span>Unlimited Progress, Unlimited Transcendence</span>
+            <span>无限进步, 无限超越</span>
+        </h1>
+    </header>
+
+    <!-- 登录表单 -->
+    <div class="login">
+        <div class="login_title">
+            <span>Login to your account</span>
+        </div>
+
+        <!-- 登录表单 -->
+        <form method="POST" action="/login">
+            <div class="login_fields__user">
+                <div class="icon">
+                    <img src="../static/images/user_icon_copy.png">
+                </div>
+                <input name="username" placeholder="Username" type="text" required>
+            </div>
+            <div class="login_fields__password">
+                <div class="icon">
+                    <img src="../static/images/lock_icon_copy.png">
+                </div>
+                <input name="password" placeholder="Password" type="password" required>
+            </div>
+            <div class="login_fields__submit">
+                <input type="submit" value="Log In">
+            </div>
+        </form>
+
+        <div class="forgot">
+            <a href="/register">Don't have an account? Register here</a>
+        </div>
+    </div>
+
+    <!-- 注册表单 -->
+    <div class="register" style="display:none;">
+        <div class="login_title">
+            <span>Register a new account</span>
+        </div>
+
+        <form method="POST" action="/register">
+            <div class="login_fields__user">
+                <div class="icon">
+                    <img src="../static/images/user_icon_copy.png">
+                </div>
+                <input name="username" placeholder="Username" type="text" required>
+            </div>
+            <div class="login_fields__email">
+                <div class="icon">
+                    <img src="../static/images/user_icon_copy.png">
+                </div>
+                <input name="email" placeholder="Email" type="email" required>
+            </div>
+            <div class="login_fields__password">
+                <div class="icon">
+                    <img src="../static/images/lock_icon_copy.png">
+                </div>
+                <input name="password" placeholder="Password" type="password" required>
+            </div>
+            <div class="login_fields__submit">
+                <input type="submit" value="Register">
+            </div>
+        </form>
+        <div class="forgot">
+            <a href="/login">Already have an account? Login here</a>
+        </div>
+    </div>
+
+    <script src="../static/js/jquery-2.1.1.min.js"></script>
+    <script>
+        // 切换表单的显示
+        $('a[href="/register"]').click(function(e) {
+            e.preventDefault();
+            $('.login').hide();
+            $('.register').show();
+        });
+
+        $('a[href="/login"]').click(function(e) {
+            e.preventDefault();
+            $('.register').hide();
+            $('.login').show();
+        });
+    </script>
+</body>
+</html>

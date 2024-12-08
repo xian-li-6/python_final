@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/index.css">
+    <title>物体识别系统</title>
+</head>
+
+<body>
+    <!-- 导航栏 -->
+    <header class="navbar">
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('home') }}">首页</a></li> <!-- 跳转到 index 页面 -->
+            <li><a href="#features">我们的优势</a></li>
+            <!-- 添加用户管理链接 -->
+            <li><a href="{{ url_for('user_management') }}" class="btn-user-management">用户管理</a></li> <!-- 用户管理链接 -->
+            <li><a href="{{ url_for('logout') }}" class="btn-logout">退出</a></li> <!-- 退出按钮 -->
+        </ul>
+    </nav>
+</header>
+
+
+    <!-- 主页内容 -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>物体识别系统</h1>
+            <p>为你的工作带来更智能的助手。轻松识别物体，快速获得结果。</p>
+            <!-- 修改了跳转链接，指向物体识别页面 -->
+            <a href="{{ url_for('recognition') }}" class="btn-primary">开始识别</a>
+        </div>
+    </section>
+
+    <!-- 功能介绍 -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2>我们的功能</h2>
+            <div class="features-list">
+                <div class="feature-item">
+                    <img src="../static/images/feature1.png" alt="功能1">
+                    <h3>快速识别</h3>
+                    <p>高效算法，实时识别，瞬间返回结果。</p>
+                </div>
+                <div class="feature-item">
+                    <img src="../static/images/feature2.png" alt="功能2">
+                    <h3>准确无误</h3>
+                    <p>使用最新技术，确保精准识别每一物体。</p>
+                </div>
+                <div class="feature-item">
+                    <img src="../static/images/feature3.png" alt="功能3">
+                    <h3>简单易用</h3>
+                    <p>直观操作，几步设置即完成识别。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <p>&copy; 2024 物体识别系统 | 设计由我们的团队制作</p>
+    </footer>
+
+    <script src="../static/js/animate.js"></script>
+</body>
+
+</html>

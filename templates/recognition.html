@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/classify.css">
+    <title>物体识别 - 上传图片</title>
+</head>
+<body>
+
+    <!-- 导航栏 -->
+    <header class="navbar">
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('home') }}">首页</a></li> <!-- 跳转到 index 页面 -->
+            <li><a href="#features">我们的优势</a></li>
+            <!-- 添加用户管理链接 -->
+            <li><a href="{{ url_for('user_management') }}" class="btn-user-management">用户管理</a></li> <!-- 用户管理链接 -->
+            <li><a href="{{ url_for('logout') }}" class="btn-logout">退出</a></li> <!-- 退出按钮 -->
+        </ul>
+    </nav>
+</header>
+
+    <section id="recognition" class="recognition">
+        <div class="container">
+            <h2>上传图片进行物体识别</h2>
+            <p class="description">通过点击按钮上传您的图片，我们将帮助您识别图片中的物体。</p>
+            <form action="{{ url_for('recognition') }}" method="POST" enctype="multipart/form-data">
+                <div class="file-upload">
+                    <input type="file" name="file" accept="image/*" required>
+                </div>
+                <button type="submit" class="btn-primary">上传并识别</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 物体识别系统 | 设计由我们的团队制作</p>
+    </footer>
+</body>
+</html>
